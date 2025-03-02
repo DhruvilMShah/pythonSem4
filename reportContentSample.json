@@ -1,0 +1,15 @@
+{
+    "email": "user124@example.com",
+    "ratedAchievements": [
+      {
+        "achievement": "Completed migration of 200+ applications to cloud",
+        "category": "Cloud Computing",
+        "rating": 5
+      },
+      {
+        "achievement": "Led a team to develop a risk assessment tool",
+        "category": "Project Management",
+        "rating": 4
+      }
+    ]
+  }

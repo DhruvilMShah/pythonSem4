@@ -2,12 +2,9 @@ from flask import Flask, jsonify, request
 import requests
 import threading
 import time
+import json
 
 app = Flask(__name__)
-
-@app.route('/api/hello', methods=['GET'])
-def hello():
-    return jsonify({"message": "Hello, World!"})
 
 @app.route('/achievements/summarize', methods=['POST'])
 def submit():
@@ -28,15 +25,19 @@ def submit():
 def process_request(data):
     """Handles the external API call and sends the result to the callback URL"""
     print("Calling ext api")
-    external_api_url = "http://localhost:8081/hi"
-    response = requests.post(external_api_url, json=data)
-    time.sleep(10)
+    headers = {"Content-Type": "application/json"}
+    #external_api_url = "http://localhost:8081/hi"
+    #response = requests.post(external_api_url, json=data)
     print("Call to external api completed", flush=True)
 
     # Send the response to the callback URL
     callback_url = data.get("callBackUrl")
+    # Read JSON file
+    with open("reportContentSample.json", "r") as file:
+        json_data = json.load(file)
+    #print(json.dumps(json_data, indent=4), flush=True)  # Pretty print JSON for debugging
     if callback_url:
-        requests.post(callback_url, json=response.json())
+        requests.post(callback_url, json=json_data, headers=headers)
 
 if __name__ == '__main__':
     app.run(debug=True)
