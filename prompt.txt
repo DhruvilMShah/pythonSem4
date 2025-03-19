@@ -1,0 +1,10 @@
+You will be given a list of achievements and a json which provides framework which evaluates employee capability in different categories present in json.
+For each achievement, find which categories are relevant based on description of category. It may happen that an achievement is not relevant for any categories.
+Then for matching categories, see the examples in each rating and find most appropriate rating for the achievement in that category and reword the achievement to suit the category description and examples given in that rating.
+Output should only be a json of below format: 
+For each achievement json elements should be: Reworded Achievement (labeled as Achievement), Category, Rating
+Here is the list of achievements:
+<Achievements>
+
+Here is the evaluation framework:
+<Framework JSON>

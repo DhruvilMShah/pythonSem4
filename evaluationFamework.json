@@ -1,0 +1,164 @@
+{
+    "framework": {
+        "thinks": {
+            "description": "Demonstrates critical thinking, problem-solving skills, and a proactive approach to challenges.",
+            "ratings": {
+                "1": [
+                    "Asks clarifying questions before starting a task.",
+                    "Recognizes gaps in understanding and seeks help.",
+                    "Can follow established patterns but struggles with novel problems.",
+                    "Makes assumptions without validating them.",
+                    "Focuses on implementation without questioning the overall approach."
+                ],
+                "2": [
+                    "Breaks problems into smaller parts to solve them systematically.",
+                    "Suggests minor improvements to existing solutions.",
+                    "Identifies inefficiencies but struggles to propose alternatives.",
+                    "Considers edge cases when implementing solutions.",
+                    "Can reason about trade-offs in straightforward scenarios."
+                ],
+                "3": [
+                    "Analyzes problems deeply and explores multiple solutions.",
+                    "Can explain the pros and cons of different approaches.",
+                    "Anticipates potential risks and suggests mitigations.",
+                    "Refactors code to improve maintainability without being asked.",
+                    "Asks insightful questions that challenge assumptions."
+                ],
+                "4": [
+                    "Develops new strategies to solve complex technical challenges.",
+                    "Can mentor others in problem-solving and decision-making.",
+                    "Balances technical and business considerations in decision-making.",
+                    "Identifies and resolves systemic inefficiencies in processes.",
+                    "Drives architectural discussions to improve system design."
+                ],
+                "5": [
+                    "Recognized as an expert in problem-solving and critical thinking.",
+                    "Influences company-wide technical strategies.",
+                    "Develops frameworks that guide decision-making at an organizational rating.",
+                    "Solves problems that require novel approaches and deep expertise.",
+                    "Leads discussions on long-term technical vision and roadmaps."
+                ]
+            }
+        },
+        "achieves": {
+            "description": "Delivers high-quality work efficiently, meets deadlines, and continuously improves output.",
+            "ratings": {
+                "1": [
+                    "Completes assigned tasks with guidance.",
+                    "Writes basic code that meets requirements but lacks optimization.",
+                    "Needs frequent reviews to ensure correctness.",
+                    "Struggles with prioritization and managing workload.",
+                    "Achieves tasks but sometimes requires rework due to lack of thoroughness."
+                ],
+                "2": [
+                    "Delivers work with minimal supervision.",
+                    "Produces maintainable and efficient code.",
+                    "Manages own workload effectively and meets deadlines.",
+                    "Seeks feedback and implements improvements proactively.",
+                    "Consistently achieves expected outcomes."
+                ],
+                "3": [
+                    "Delivers complex projects independently.",
+                    "Ensures code is scalable and follows best practices.",
+                    "Balances speed and quality effectively.",
+                    "Provides useful feedback to peers to enhance their work.",
+                    "Improves team processes to enhance productivity."
+                ],
+                "4": [
+                    "Leads multiple projects simultaneously.",
+                    "Optimizes workflows for better efficiency.",
+                    "Proactively identifies and removes bottlenecks.",
+                    "Consistently delivers beyond expectations.",
+                    "Sets high standards for performance across the team."
+                ],
+                "5": [
+                    "Drives organizational change to improve efficiency.",
+                    "Consistently achieves exceptional results.",
+                    "Develops new methodologies to enhance execution.",
+                    "Mentors teams across the organization to improve delivery.",
+                    "Shapes the company’s approach to execution excellence."
+                ]
+            }
+        },
+        "influences": {
+            "description": "Impacts individuals, teams, and the organization positively through communication and leadership.",
+            "ratings": {
+                "1": [
+                    "Shares ideas in small discussions.",
+                    "Accepts feedback but struggles to give it constructively.",
+                    "Supports teammates when asked.",
+                    "Understands team goals but doesn’t actively contribute to shaping them.",
+                    "Communicates effectively within immediate team."
+                ],
+                "2": [
+                    "Shares knowledge through presentations or documentation.",
+                    "Gives constructive feedback to peers.",
+                    "Encourages collaboration within the team.",
+                    "Communicates effectively across teams.",
+                    "Helps align work with team objectives."
+                ],
+                "3": [
+                    "Acts as a mentor to junior colleagues.",
+                    "Influences technical decisions within the team.",
+                    "Advocates for best practices in the organization.",
+                    "Leads initiatives that improve team efficiency.",
+                    "Resolves conflicts and aligns team priorities."
+                ],
+                "4": [
+                    "Shapes technical strategy at a department level.",
+                    "Mentors senior engineers.",
+                    "Drives cross-team collaboration on major initiatives.",
+                    "Influences stakeholders on key technical decisions.",
+                    "Creates a culture of continuous improvement."
+                ],
+                "5": [
+                    "Recognized as a thought leader in the organization.",
+                    "Shapes industry best practices.",
+                    "Drives company-wide cultural and technical changes.",
+                    "Advises executives on technical matters.",
+                    "Represents the company externally at conferences and panels."
+                ]
+            }
+        },
+        "designs": {
+            "description": "Demonstrates ability to design scalable, maintainable, and efficient systems.",
+            "ratings": {
+                "1": [
+                    "Follows existing design patterns in implementation.",
+                    "Struggles to make independent design decisions.",
+                    "Requires significant guidance to structure code effectively.",
+                    "Understands basic system components but lacks deep architectural knowledge.",
+                    "Can identify simple inefficiencies but struggles to suggest improvements."
+                ],
+                "2": [
+                    "Designs small components with minimal supervision.",
+                    "Understands and applies design principles like modularity and separation of concerns.",
+                    "Recognizes trade-offs between performance, maintainability, and scalability.",
+                    "Refactors existing code for better structure.",
+                    "Participates in design discussions and reviews."
+                ],
+                "3": [
+                    "Designs medium-sized systems independently.",
+                    "Balances short-term and long-term technical considerations.",
+                    "Mentors others on design principles.",
+                    "Identifies and mitigates scalability concerns.",
+                    "Writes documentation for architectural decisions."
+                ],
+                "4": [
+                    "Leads design of large-scale distributed systems.",
+                    "Influences design decisions across multiple teams.",
+                    "Evaluates new technologies and frameworks for adoption.",
+                    "Establishes best practices for system design.",
+                    "Reduces technical debt by driving architectural improvements."
+                ],
+                "5": [
+                    "Defines company-wide architectural strategies.",
+                    "Solves complex design problems with innovative solutions.",
+                    "Sets long-term technology vision.",
+                    "Builds frameworks that improve system-wide reliability and efficiency.",
+                    "Advises leadership on technical strategy."
+                ]
+            }
+        }
+    }
+}

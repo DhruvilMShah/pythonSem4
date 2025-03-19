@@ -3,8 +3,12 @@ import requests
 import threading
 import time
 import json
+from google import genai
+from google.genai import types
 
 app = Flask(__name__)
+
+client = genai.Client(api_key="none-of-your-business")
 
 @app.route('/achievements/summarize', methods=['POST'])
 def submit():
@@ -24,28 +28,58 @@ def submit():
 
 def process_request(data):
     
-    """Handles the external API call and sends the result to the callback URL"""
-    print("Calling ext api")
-    headers = {"Content-Type": "application/json"}
-    #external_api_url = "http://localhost:8081/hi"
-    #response = requests.post(external_api_url, json=data)
-    print("Call to external api completed", flush=True)
+    """Handles the external API call and sends the result to the callback URL"""   
+    
+    # Get the prompt from the request
+    list_of_achievements = data.get("achievementDesc", [])
+    str_list_of_achievements = str(list_of_achievements)
+    # Specify the path to your text file
+    prompt_file_path = 'prompt.txt'
+
+    # Read the contents of the prompt file into a string
+    with open(prompt_file_path, 'r') as file:
+        prompt_file_contents = file.read()
+
+    # Specify the path to your evaluation framework JSON file
+    file_path = 'evaluationFamework.json'
+
+    # Read the contents of the JSON file into a string
+    with open(file_path, 'r') as file:
+        framework_json = file.read()
+
+    # Replace '<Achievements>' with 'str_list_of_achievements'
+    final_prompt = prompt_file_contents.replace('<Achievements>', str_list_of_achievements)
+    final_prompt = final_prompt.replace('<Framework JSON>', framework_json)
+
+    # print("--- Final prompt is: " + final_prompt)
+
+    # Call the Gemini API to generate text
+    response = client.models.generate_content(
+        model='gemini-2.0-flash',
+        contents=final_prompt
+    )
+
+    # Return the generated text as a JSON response
+    # print("--- Response from AI is: " + response.text, flush=True)
+    # Step 1: Remove the surrounding backticks and any leading/trailing whitespace
+    cleaned_response = response.text.strip().strip('`')
+
+    # Step 2: Optionally, you can also remove the "json" part if it's included
+    if cleaned_response.startswith('json'):
+        cleaned_response = cleaned_response[4:].strip()
+
+    # If you want to parse it into a Python object
+    json_data = json.loads(cleaned_response)
+
 
     # Send the response to the callback URL
     callback_url = data.get("callBackUrl")
-    rated_achievements = []
-    for ach in data.get("achievementDesc"):
-        rated_achievements.append({
-            "achievement": ach,
-            "category": "Dummy Category",
-            "rating": "3"
-        })
-
     new_data = {
         "email": data.get("emailId"),
-        "ratedAchievements": rated_achievements
+        "ratedAchievements": json_data
     }
-    json_new_data = json.dumps(new_data, indent=4)
+
+    headers = {"Content-Type": "application/json"}
     if callback_url:
         requests.post(callback_url, json=new_data, headers=headers)
 
