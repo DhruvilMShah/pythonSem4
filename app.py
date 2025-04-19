@@ -9,14 +9,10 @@ from google.genai import types
 app = Flask(__name__)
 
 client = genai.Client(api_key="none-of-your-business")
-
 @app.route('/achievements/summarize', methods=['POST'])
 def submit():
     data = request.get_json()
-    list_of_achievements = data.get("achievementDesc", [])
-    call_back_url = data.get("callBackUrl", "")
     email_id = data.get("emailId", "")
-    reportType = data.get("type", "")
     print("Accepted summarize request for "+email_id, flush=True)
     
     # Start the process in a separate thread
@@ -76,6 +72,7 @@ def process_request(data):
     callback_url = data.get("callBackUrl")
     new_data = {
         "email": data.get("emailId"),
+        "reportId": data.get("reportId"),
         "ratedAchievements": json_data
     }
 
