@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, request
 import requests
 import threading
-import time
-import json
+#import time
+#import json
+import ast
 from google import genai
 from google.genai import types
 
@@ -65,7 +66,7 @@ def process_request(data):
         cleaned_response = cleaned_response[4:].strip()
 
     # If you want to parse it into a Python object
-    json_data = json.loads(cleaned_response)
+    json_data = ast.literal_eval(cleaned_response)
 
 
     # Send the response to the callback URL
@@ -75,6 +76,8 @@ def process_request(data):
         "reportId": data.get("reportId"),
         "ratedAchievements": json_data
     }
+
+    #print("--- Data to be posted is: " + str(new_data), flush=True)
 
     headers = {"Content-Type": "application/json"}
     if callback_url:
