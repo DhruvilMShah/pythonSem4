@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 import requests
-import threading
+#import threading
 #import time
 #import json
 import ast
@@ -17,8 +17,9 @@ def submit():
     print("Accepted summarize request for "+email_id, flush=True)
     
     # Start the process in a separate thread
-    thread = threading.Thread(target=process_request, args=(data,))
-    thread.start()
+    #thread = threading.Thread(target=process_request, args=(data,))
+    #thread.start()
+    process_request(data)
 
     # Return immediately to the Java API
     return jsonify({"message": "Processing started"}), 202
